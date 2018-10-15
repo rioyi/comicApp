@@ -6,7 +6,7 @@ import { APP_ROUTING } from './app.routes';
 
 
 // Services
-
+import { HeroeService } from "./services/heroes.service";
 
 // Components
 import { AppComponent } from './app.component';
