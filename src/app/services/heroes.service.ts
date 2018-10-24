@@ -12,7 +12,7 @@ export interface Heroe {
 @Injectable()
 export class HeroeService {
 
-  private heroes : Heroe[] = [
+  private heroes: Heroe[] = [
     {
       nombre: 'Aquaman',
       bio: 'El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.',
@@ -25,7 +25,7 @@ export class HeroeService {
       bio: 'Los rasgos principales de Batman se resumen en «destreza física, habilidades deductivas y obsesión». La mayor parte de las características básicas de los cómics han variado por las diferentes interpretaciones que le han dado al personaje.',
       img: 'assets/img/batman.png',
       aparicion: '1939-05-01',
-      casa:'DC'
+      casa: 'DC'
     },
     {
       nombre: 'Daredevil',
@@ -68,11 +68,25 @@ export class HeroeService {
 
   }
 
-  getHeroes(): Heroe[]{
+  getHeroes(): Heroe[] {
     return this.heroes;
   }
 
-  getHeroe(idx:string): Heroe {
+  getHeroe(idx: string): Heroe {
     return this.heroes[idx]
+  }
+
+  buscarHeroes(termino: string): Heroe[] {
+    const HEROESARR: Heroe[] = [];
+    termino = termino.toLowerCase();
+    for (const HEROE of this.heroes) {
+      const NOMBRE = HEROE.nombre.toLowerCase();
+      if (NOMBRE.indexOf(termino) >= 0) {
+        HEROESARR.push(HEROE);
+      } {
+
+      }
+    }
+    return HEROESARR;
   }
 }

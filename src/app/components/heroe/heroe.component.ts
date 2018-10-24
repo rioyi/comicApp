@@ -14,16 +14,15 @@ export class HeroeComponent implements OnInit {
 
   constructor( private activatedRoute: ActivatedRoute,
                private _heroeService: HeroeService
-    ) {
+    ) { }
+
+  ngOnInit() {
     this.activatedRoute.params.subscribe( params => {
       console.log(params);
       this.heroe = this._heroeService.getHeroe(params['id']);
+      console.log(this.heroe, 'xxxxxxxxxxxxxxxxxxx');
     });
 
-    console.log(this.heroe);
-   }
-
-  ngOnInit() {
   }
 
 }
